@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> -->
+    <link rel="stylesheet" href="./scss/style.css" />
+    <script type="module" src="./js/scripts.js"></script>
+    <title>Signal Cipher - your morse code companion</title>
+  </head>
+  <body>
+    <header>
+      <h1>Signal Cipher</h1>
+      <h3>Morse Code Translator</h3>
+    </header>
+    <main>
+      <div class="translator__container--btns">
+        <button>English</button>
+        <div>-----<div>
+          <button>Morse</button>
+        </div>
+        <label for="englishInput"></label>
+        <!-- name attribute is for the form -->
+        <textarea type="text" id="englishInput" name="english-input" rows="10" columns="50" placeholder="Translate to Morse" required></textarea>
+        <label for="morseInput"></label>
+        <textarea type="text" id="morseInput" name="morse-input" rows="10" columns="50" placeholder="Translate to English" required></textarea>
+        <div class="decodeText">
+          placeholder
+        </div>
+    </main>
+  </body>
+</html>

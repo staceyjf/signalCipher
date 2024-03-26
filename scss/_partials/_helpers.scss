@@ -1,0 +1,22 @@
+// getting everything to default
+%flex-row-align-center {
+  display: flex;
+  align-items: center;
+}
+
+%flex-row-center-center {
+  display: flex;
+  justify-content: center; // aligns main (eg horizontal)
+  align-items: center; // aligns cross (eg vertical)
+}
+
+%flex-column-center-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // aligns main (eg vertical)
+  align-items: center; // aligns cross (eg horiztonal;)
+}
+
+// ul {
+//   list-style-type: none;
+// }

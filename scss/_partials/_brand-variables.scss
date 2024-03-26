@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+$primary-color: black;
+$secondary-color: lightgrey;
+$dark-color: #333;
+$light-color: #e9ecea;
+
+// taking the fonts weight as params for easy customisation
+@mixin font--primary($weight) {
+  font-family: "Space Mono", "Courier New", Courier, monospace;
+  font-weight: $weight;
+  letter-spacing: 0.15em;
+}
+
+@mixin font--secondary($weight) {
+  font-family: "Source Code Pro", "Courier New", Courier, monospace;
+  font-weight: $weight;
+  letter-spacing: 0.025em;
+}
+
+%wallpaper {
+  background: url(../assets/bg.svg) repeat;
+  background-size: 4px 4px;
+}
+
+%box-shadow-border-all {
+  border: 3px solid black;
+  box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.9);
+}
+
+%rounded-border-top--thick {
+  border: 8px solid black;
+  border-radius: 10px 10px 0 0;
+}

@@ -1,0 +1,41 @@
+// partials
+@use "./_partials/normalisation";
+@use "./_partials/helpers";
+
+// elements
+@use "./_elements/translator.scss";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100vh;
+  width: 100vw;
+  background-color: lightcyan;
+  @extend %flex-column-center-center;
+}
+
+body {
+  height: 100vh;
+  width: 30vw;
+  padding: 5em 0;
+  @extend %flex-column-center-center;
+}
+
+header {
+  background-color: red;
+  width: 100%;
+  max-height: 25%;
+  padding-bottom: 1em;
+  @extend %flex-column-center-center;
+}
+
+main {
+  width: 100%;
+  flex: 1;
+  background-color: green;
+  @extend %flex-column-center-center;
+}
