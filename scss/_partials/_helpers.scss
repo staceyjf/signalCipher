@@ -1,7 +1,7 @@
 // getting everything to default
 %flex-row-align-center {
   display: flex;
-  align-items: center;
+  align-items: center; // aligns cross (eg vertical)
 }
 
 %flex-row-center-center {

@@ -4,3 +4,21 @@
 
 // components
 @use "../_components/btn.scss";
+
+.translator {
+  background-color: lightgray;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; // aligns main (eg vertical)
+  align-items: stretch; // aligns cross (eg horiztonal;)
+  padding: 1em;
+
+  &__btnContainer {
+    display: flex;
+    justify-content: space-evenly; // aligns main (eg horiztonal)
+    align-items: center; // aligns cross (eg vertical;)
+    padding: 1em;
+  }
+}

@@ -14,19 +14,35 @@
       <h3>Morse Code Translator</h3>
     </header>
     <main>
-      <div class="translator__container--btns">
-        <button>English</button>
-        <div>-----<div>
+      <div class="translator">
+        <div class="translator__btnContainer">
+          <button>English</button>
+          <div>-----</div>
           <button>Morse</button>
         </div>
         <label for="englishInput"></label>
         <!-- name attribute is for the form -->
-        <textarea type="text" id="englishInput" name="english-input" rows="10" columns="50" placeholder="Translate to Morse" required></textarea>
+        <textarea
+          type="text"
+          id="englishInput"
+          name="english-input"
+          rows="5"
+          columns="30"
+          placeholder="Translate to Morse"
+          required
+        ></textarea>
         <label for="morseInput"></label>
-        <textarea type="text" id="morseInput" name="morse-input" rows="10" columns="50" placeholder="Translate to English" required></textarea>
-        <div class="decodeText">
-          placeholder
-        </div>
+        <textarea
+          type="text"
+          id="morseInput"
+          name="morse-input"
+          rows="5"
+          columns="30"
+          placeholder="Translate to English"
+          required
+        ></textarea>
+        <div class="decodeText">placeholder</div>
+      </div>
     </main>
   </body>
 </html>
