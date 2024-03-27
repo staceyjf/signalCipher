@@ -16,12 +16,14 @@
   justify-content: space-evenly; // aligns main (eg vertical)
   align-items: center; // aligns cross (eg horiztonal;)
   padding: 1em;
+  row-gap: 2em;
 
   &__btnContainer {
     display: flex;
     justify-content: space-evenly; // aligns main (eg horiztonal)
     align-items: center; // aligns cross (eg vertical;)
     column-gap: 1em;
+    margin-top: 2em;
 
     & button {
       @extend %btn;
@@ -56,6 +58,15 @@
     }
   }
 
+  & .decodedtext {
+    width: 80%;
+    padding: 1em;
+    margin-bottom: 2em;
+    flex: 1;
+    background-color: white;
+    text-align: center;
+  }
+
   @include q.tablet {
     &__btnContainer {
       column-gap: 2em;
@@ -67,6 +78,10 @@
     }
 
     & textarea {
+      width: 60%;
+    }
+
+    & .decodedtext {
       width: 60%;
     }
   }
