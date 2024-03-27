@@ -1,5 +1,3 @@
-console.log("working");
-
 // defining my morse code dictionary
 export const morseDictionary = {
   A: ".-",
