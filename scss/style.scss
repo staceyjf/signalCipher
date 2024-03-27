@@ -1,6 +1,7 @@
 // partials
 @use "./_partials/normalisation";
 @use "./_partials/helpers";
+@use "./_partials/brand-variables" as bv;
 
 // elements
 @use "./_elements/translator.scss";
@@ -18,11 +19,15 @@ body {
 }
 
 header {
-  background-color: red;
+  background-color: bv.$primary-color;
   width: 100%;
   max-height: max-content;
   @extend %flex-column-center-center;
   padding-bottom: 1em;
+
+  h1 {
+    @include bv.font--primary(900);
+  }
 }
 
 main {

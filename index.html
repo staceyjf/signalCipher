@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> -->
     <link rel="stylesheet" href="./scss/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <script type="module" src="./js/scripts.js"></script>
     <title>Signal Cipher - your morse code companion</title>
   </head>
@@ -17,10 +21,10 @@
       <div class="translator">
         <div class="translator__btnContainer">
           <button>English</button>
-          <div>-----</div>
+          <span class="material-symbols-outlined"> sync_alt </span>
           <button>Morse</button>
         </div>
-        <label for="englishInput"></label>
+        <!-- <label for="englishInput"></label> -->
         <!-- name attribute is for the form -->
         <textarea
           type="text"
@@ -31,7 +35,7 @@
           placeholder="Translate to Morse"
           required
         ></textarea>
-        <label for="morseInput"></label>
+        <!-- <label for="morseInput"></label> -->
         <textarea
           type="text"
           id="morseInput"
@@ -41,7 +45,7 @@
           placeholder="Translate to English"
           required
         ></textarea>
-        <div class="decodeText">placeholder</div>
+        <div class="decodeText">result goes here</div>
       </div>
     </main>
   </body>
