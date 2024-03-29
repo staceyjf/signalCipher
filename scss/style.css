@@ -310,7 +310,7 @@ template {
   display: none;
 }
 
-body, header, main, .translator__english, .translator__morse {
+body, header, main, .translator__results {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -373,11 +373,11 @@ body, header, main, .translator__english, .translator__morse {
   width: 9em;
   height: 3em;
 }
-.translator__english, .translator__morse {
+.translator__results {
   width: 100%;
   row-gap: 1em;
 }
-.translator__english textarea, .translator__morse textarea {
+.translator__results textarea {
   width: 80%;
   padding: 10px;
   border: 1px solid #e9ecea;
@@ -387,15 +387,15 @@ body, header, main, .translator__english, .translator__morse {
   color: #333;
   transition: border-color 0.3s ease;
 }
-.translator__english textarea:focus, .translator__morse textarea:focus {
+.translator__results textarea:focus {
   border-color: blue;
   outline: none;
 }
-.translator__english textarea::placeholder, .translator__morse textarea::placeholder {
+.translator__results textarea::placeholder {
   text-align: center;
   color: #999;
 }
-.translator__english .decodedtext, .translator__morse .decodedtext {
+.translator__results .decodedtext {
   width: 80%;
   min-height: 10em;
   padding: 1em;

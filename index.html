@@ -20,12 +20,12 @@
     <main>
       <div class="translator">
         <div class="translator__btnContainer">
-          <button>English</button>
+          <button id="toMorseBtn">English</button>
           <span class="material-symbols-outlined"> sync_alt </span>
-          <button>Morse</button>
+          <button id="toEnglishBtn">Morse</button>
         </div>
 
-        <div class="translator__english">
+        <div class="translator__results">
           <textarea
             type="text"
             id="englishInput"
@@ -38,7 +38,7 @@
           <div class="decodedtext"></div>
         </div>
 
-        <!-- <div class="translator__morse">
+        <div class="translator__results">
           <textarea
             type="text"
             id="morseInput"
@@ -49,7 +49,7 @@
             required
           ></textarea>
           <div class="decodedtext"></div>
-        </div> -->
+        </div>
       </div>
     </main>
   </body>

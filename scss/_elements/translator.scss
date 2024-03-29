@@ -36,8 +36,7 @@
     // }
   }
 
-  &__english,
-  &__morse {
+  &__results {
     width: 100%;
     @extend %flex-column-center-center;
     row-gap: 1em;
