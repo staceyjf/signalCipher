@@ -13,10 +13,10 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly; // aligns main (eg vertical)
+  justify-content: flex-start; // aligns main (eg vertical)
   align-items: center; // aligns cross (eg horiztonal;)
   padding: 1em;
-  row-gap: 2em;
+  row-gap: 4em;
 
   &__btnContainer {
     display: flex;
@@ -36,35 +36,42 @@
     // }
   }
 
-  & textarea {
-    width: 80%;
-    padding: 10px;
-    border: 1px solid bv.$light-color; // Add a border
-    border-radius: 4px;
-    font-size: 16px;
-    line-height: 1.5;
-    color: bv.$dark-color;
-    transition: border-color 0.3s ease;
+  &__english,
+  &__morse {
+    width: 100%;
+    @extend %flex-column-center-center;
+    row-gap: 1em;
 
-    // when the user is interacting with it
-    &:focus {
-      border-color: bv.$primary-color;
-      outline: none;
+    & textarea {
+      width: 80%;
+      padding: 10px;
+      border: 1px solid bv.$light-color; // Add a border
+      border-radius: 4px;
+      font-size: 16px;
+      line-height: 1.5;
+      color: bv.$dark-color;
+      transition: border-color 0.3s ease;
+
+      // when the user is interacting with it
+      &:focus {
+        border-color: bv.$primary-color;
+        outline: none;
+      }
+
+      &::placeholder {
+        text-align: center;
+        color: #999; // Change the placeholder text color
+      }
     }
 
-    &::placeholder {
+    & .decodedtext {
+      width: 80%;
+      min-height: 10em;
+      padding: 1em;
+      flex: 1;
+      background-color: white;
       text-align: center;
-      color: #999; // Change the placeholder text color
     }
-  }
-
-  & .decodedtext {
-    width: 80%;
-    padding: 1em;
-    margin-bottom: 2em;
-    flex: 1;
-    background-color: white;
-    text-align: center;
   }
 
   @include q.tablet {

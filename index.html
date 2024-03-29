@@ -24,28 +24,32 @@
           <span class="material-symbols-outlined"> sync_alt </span>
           <button>Morse</button>
         </div>
-        <!-- <label for="englishInput"></label> -->
-        <!-- name attribute is for the form -->
-        <textarea
-          type="text"
-          id="englishInput"
-          name="english-input"
-          rows="5"
-          columns="30"
-          placeholder="Translate to Morse"
-          required
-        ></textarea>
-        <!-- <label for="morseInput"></label> -->
-        <textarea
-          type="text"
-          id="morseInput"
-          name="morse-input"
-          rows="5"
-          columns="30"
-          placeholder="Translate to English"
-          required
-        ></textarea>
-        <div class="decodedtext"></div>
+
+        <div class="translator__english">
+          <textarea
+            type="text"
+            id="englishInput"
+            name="english-input"
+            rows="5"
+            columns="30"
+            placeholder="Translate English to Morse"
+            required
+          ></textarea>
+          <div class="decodedtext"></div>
+        </div>
+
+        <!-- <div class="translator__morse">
+          <textarea
+            type="text"
+            id="morseInput"
+            name="morse-input"
+            rows="5"
+            columns="30"
+            placeholder="Translate Morse to English"
+            required
+          ></textarea>
+          <div class="decodedtext"></div>
+        </div> -->
       </div>
     </main>
   </body>

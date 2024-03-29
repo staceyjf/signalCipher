@@ -310,7 +310,7 @@ template {
   display: none;
 }
 
-body, header, main {
+body, header, main, .translator__english, .translator__morse {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -357,10 +357,10 @@ body, header, main {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
   padding: 1em;
-  row-gap: 2em;
+  row-gap: 4em;
 }
 .translator__btnContainer {
   display: flex;
@@ -373,7 +373,11 @@ body, header, main {
   width: 9em;
   height: 3em;
 }
-.translator textarea {
+.translator__english, .translator__morse {
+  width: 100%;
+  row-gap: 1em;
+}
+.translator__english textarea, .translator__morse textarea {
   width: 80%;
   padding: 10px;
   border: 1px solid #e9ecea;
@@ -383,18 +387,18 @@ body, header, main {
   color: #333;
   transition: border-color 0.3s ease;
 }
-.translator textarea:focus {
+.translator__english textarea:focus, .translator__morse textarea:focus {
   border-color: blue;
   outline: none;
 }
-.translator textarea::placeholder {
+.translator__english textarea::placeholder, .translator__morse textarea::placeholder {
   text-align: center;
   color: #999;
 }
-.translator .decodedtext {
+.translator__english .decodedtext, .translator__morse .decodedtext {
   width: 80%;
+  min-height: 10em;
   padding: 1em;
-  margin-bottom: 2em;
   flex: 1;
   background-color: white;
   text-align: center;
