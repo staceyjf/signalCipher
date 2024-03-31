@@ -32,16 +32,22 @@ inputText.addEventListener("input", (event) => {
   const currentMode = event.target.dataset.inputType;
   let outputText = "";
 
-  if (currentMode === "toMorse") {
-    outputText = inputText.value
-      .split("")
-      .map((char) => translateToMorse(char) + " ") // separator is handled in translateToMorse
-      .join("");
-  } else if (currentMode === "toEnglish") {
-    outputText = inputText.value
-      .split(" ")
-      .map((morseChar) => translateToEnglish(morseChar)) // separator is handled in translateToMorse
-      .join("");
+  try {
+    if (currentMode === "toMorse") {
+      outputText = inputText.value
+        .split("")
+        .map((char) => translateToMorse(char) + " ") // separator is handled in translateToMorse
+        .join("");
+    } else if (currentMode === "toEnglish") {
+      outputText = inputText.value
+        .split(" ")
+        .map((morseChar) => translateToEnglish(morseChar)) // separator is handled in translateToMorse
+        .join("");
+    }
+    decodedOutputElement.textContent = outputText;
+  } catch (error) {
+    console.error("ERROR: " + error.message);
+    decodedOutputElement.textContent =
+      "There has been an error - please try again";
   }
-  decodedOutputElement.textContent = outputText;
 });

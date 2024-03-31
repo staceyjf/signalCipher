@@ -2,7 +2,7 @@
 @use "./_partials/normalisation";
 @use "./_partials/helpers";
 @use "./_partials/brand-variables" as bv;
-@use "./_partials/queries" as q;
+@use "./_partials/queries";
 
 // elements
 @use "./_elements/translator.scss";
@@ -30,6 +30,33 @@ header {
   h1 {
     @include bv.font--primary(900);
     font-size: 1.5em;
+  }
+
+  @include queries.tablet {
+    h1 {
+      font-size: 2em;
+    }
+    h3 {
+      font-size: 1.5em;
+    }
+  }
+
+  @include queries.laptop {
+    h1 {
+      font-size: 2em;
+    }
+    h3 {
+      font-size: 1.5em;
+    }
+  }
+
+  @include queries.desktop {
+    h1 {
+      font-size: 3em;
+    }
+    h3 {
+      font-size: 2em;
+    }
   }
 }
 
