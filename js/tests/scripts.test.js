@@ -2,7 +2,7 @@
 // separator: words are separated by "/"
 // space: each character is separated by a single space
 
-import { translateToEnglish } from "../translate.js";
+import { translateToEnglish, translateToMorse } from "../translate.js";
 
 // ERRORS
 const invalidInputError = new Error("A string has not been provided"); // be careful how you set this up
@@ -44,7 +44,7 @@ describe("test cases for a function that translates a single char to morse code"
 
 // Morse code to english
 // convert a single code pattern to a english char
-xdescribe("test cases for a function that translate a morse code letter to a single english character", () => {
+describe("test cases for a function that translate a morse code letter to a single english character", () => {
   it("should return a translated a single morse code block to a char", () => {
     expect(translateToMorse("....")).toBe("H");
     expect(translateToMorse(".--")).toBe("W");
@@ -53,7 +53,7 @@ xdescribe("test cases for a function that translate a morse code letter to a sin
   });
 
   it("should return an empty string when the input is an empty string", () => {
-    expect(translateToMorse("").toBe(""));
+    expect(translateToMorse("")).toBe("");
   });
 
   it("should correctly translate a ' ' to be a new english char", () => {

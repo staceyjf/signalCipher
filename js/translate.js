@@ -62,16 +62,16 @@ const dictionary = {
 const invalidInputError = "A string has not been provided";
 
 export function translateToEnglish(userInput) {
-  if (userInput === "") return "";
   if (typeof userInput !== "string") throw new Error(invalidInputError);
+  if (userInput === "") return "";
 
-  let englishChar = userInput.toUpperCase();
-  let morseChar;
+  // morse is case in-insensitive
+  const englishChar = userInput.toUpperCase();
 
-  // add seperator for spaces
+  // add separator to represent a space
   if (englishChar === " ") return "/";
 
-  morseChar = dictionary[englishChar];
+  let morseChar = dictionary[englishChar];
 
   // deal with chars that don't have a translation
   if (morseChar === undefined) morseChar = "#";
@@ -79,6 +79,20 @@ export function translateToEnglish(userInput) {
   return morseChar;
 }
 
-// function translateToMorse() {
-//   return null;
-// };
+export function translateToMorse(userInput) {
+  if (typeof userInput !== "string") throw new Error(invalidInputError);
+  if (userInput === "" || userInput === " ") return "";
+  // as # can presents any english char that doesn't have a morse equivalent, we should return #
+  if (userInput === "#") return "#";
+  // it should translate the separator to be a space
+  if (userInput === "/") return " ";
+
+  // use the value to find the key aka englishChar
+  let englishChar = Object.keys(dictionary).find(
+    (key) => dictionary[key] === userInput
+  );
+
+  if (englishChar === undefined) englishChar = "#";
+
+  return englishChar;
+}
