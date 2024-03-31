@@ -20,34 +20,24 @@
     <main>
       <div class="translator">
         <div class="translator__btnContainer">
-          <button id="toMorseBtn">English</button>
-          <span class="material-symbols-outlined"> sync_alt </span>
-          <button id="toEnglishBtn">Morse</button>
+          <button id="toMorseBtn">Translate to Morse</button>
+          <button id="toEnglishBtn">Translate to English</button>
+          <button id="resetBtn">Reset</button>
         </div>
 
         <div class="translator__results">
           <textarea
             type="text"
-            id="englishInput"
-            name="english-input"
+            id="inputText"
+            name="inputText"
             rows="5"
             columns="30"
-            placeholder="Translate English to Morse"
-            required
+            placeholder="Translate your text here"
           ></textarea>
+        </div>
+
+        <div class="translator__results">
           <div id="decodedOutput" class="decodedtext"></div>
-        </div>
-
-        <div class="translator__results">
-          <textarea
-            type="text"
-            id="morseInput"
-            name="morse-input"
-            rows="5"
-            columns="30"
-            placeholder="Translate Morse to English"
-            required
-          ></textarea>
         </div>
       </div>
     </main>

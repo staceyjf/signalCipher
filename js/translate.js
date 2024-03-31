@@ -41,7 +41,6 @@ const dictionary = {
   "?": "..--..",
   "'": ".----.",
   "!": "-.-.--",
-  "/": "-..-.",
   "(": "-.--.",
   ")": "-.--.-",
   "&": ".-...",
@@ -61,7 +60,8 @@ const dictionary = {
 // ERRORS
 const invalidInputError = "A string has not been provided";
 
-export function translateToEnglish(englishUserInput) {
+export function translateToMorse(englishUserInput) {
+  console.log(englishUserInput);
   if (typeof englishUserInput !== "string") throw new Error(invalidInputError);
   if (englishUserInput === "") return "";
 
@@ -80,7 +80,7 @@ export function translateToEnglish(englishUserInput) {
   return morseChar + " ";
 }
 
-export function translateToMorse(morseUserInput) {
+export function translateToEnglish(morseUserInput) {
   if (typeof morseUserInput !== "string") throw new Error(invalidInputError);
   if (morseUserInput === "" || morseUserInput === " ") return "";
   // as # can presents any english char that doesn't have a morse equivalent, we should return #
