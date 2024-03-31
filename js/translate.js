@@ -76,7 +76,8 @@ export function translateToEnglish(englishUserInput) {
   // deal with chars that don't have a translation
   if (morseChar === undefined) morseChar = "#";
 
-  return morseChar;
+  // each morse char is seperated by a space
+  return morseChar + " ";
 }
 
 export function translateToMorse(morseUserInput) {
