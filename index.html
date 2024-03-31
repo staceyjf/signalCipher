@@ -19,25 +19,26 @@
     </header>
     <main>
       <div class="translator">
-        <div class="translator__btnContainer">
-          <button id="toMorseBtn">Translate to Morse</button>
-          <button id="toEnglishBtn">Translate to English</button>
-          <button id="resetBtn">Reset</button>
-        </div>
-
         <div class="translator__results">
           <textarea
             type="text"
             id="inputText"
+            data-input-type="toMorse"
             name="inputText"
             rows="5"
             columns="30"
-            placeholder="Translate your text here"
+            placeholder="Translate English to Morse"
           ></textarea>
         </div>
 
         <div class="translator__results">
           <div id="decodedOutput" class="decodedtext"></div>
+        </div>
+        <div class="translator__btnContainer">
+          <button id="toggleBtn">Switch input</button>
+          <!-- <button id="toMorseBtn">Translate to Morse</button>
+          <button id="toEnglishBtn">Translate to English</button> -->
+          <button id="resetBtn">Reset</button>
         </div>
       </div>
     </main>

@@ -4,29 +4,44 @@ import { translateToEnglish, translateToMorse } from "./translate.js";
 const decodedOutputElement = document.getElementById("decodedOutput");
 const inputText = document.getElementById("inputText");
 const resetButton = document.getElementById("resetBtn");
+const toggleButton = document.getElementById("toggleBtn");
 
-// reset
 resetButton.addEventListener("click", () => {
   decodedOutputElement.textContent = "";
   inputText.value = "";
 });
 
-document.querySelectorAll("button").forEach((btn) => {
-  btn.addEventListener("click", (event) => {
-    const inputTextValue = inputText.value;
-    let outputText = "";
+toggleButton.addEventListener("click", (event) => {
+  // Toggle the translation mode with the custom html data attribute
+  const currentMode = event.target.dataset.inputType;
+  const newMode = currentMode === "toMorse" ? "toEnglish" : "toMorse";
+  inputText.setAttribute("data-input-type", newMode);
 
-    if (event.target.id === "toMorseBtn") {
-      outputText = inputTextValue
-        .split("")
-        .map((char) => translateToMorse(char))
-        .join("");
-    } else if (event.target.id === "toEnglishBtn") {
-      outputText = inputTextValue
-        .split(" ")
-        .map((morseChar) => translateToEnglish(morseChar))
-        .join("");
-    }
-    decodedOutputElement.textContent = outputText;
-  });
+  //reset the input and output
+  decodedOutputElement.textContent = "";
+  inputText.value = "";
+  inputText.placeholder =
+    newMode === "toMorse"
+      ? "Translate English to Morse"
+      : "Translate Morse to English";
+});
+
+// update in realtime via the input event
+inputText.addEventListener("input", (event) => {
+  // get my custom data attribute.  browser converts kebab-case to camelCase.
+  const currentMode = event.target.dataset.inputType;
+  let outputText = "";
+
+  if (currentMode === "toMorse") {
+    outputText = inputText.value
+      .split("")
+      .map((char) => translateToMorse(char)) // separator and char spacing is handled in translateToMorse
+      .join("");
+  } else if (currentMode === "toEnglish") {
+    outputText = inputText.value
+      .split(" ")
+      .map((morseChar) => translateToEnglish(morseChar)) // separator is handled in translateToMorse
+      .join("");
+  }
+  decodedOutputElement.textContent = outputText;
 });
