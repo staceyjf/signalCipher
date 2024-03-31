@@ -5,22 +5,31 @@ import { translateToEnglish, translateToMorse } from "./translate.js";
 // const toEnglishBtn = document.getElementById("toEnglishBtn");
 const decodedOutputElement = document.getElementById("decodedOutput");
 let ongoingTranslatedText = "";
+let userErrorMessage = "";
 
 //helper function
 function handleBackspace() {
-  // need to deal with the extra " " added by translatetoEnglish()
-  if (outputResult.trimEnd().includes(" ")) {
-    let lastSpaceIndex = outputResult.trimEnd().lastIndexOf(" ");
-    outputResult = outputResult.slice(0, lastSpaceIndex);
-  } else {
-    outputResult = "";
+  // Check if ongoingTranslatedText is not empty
+  if (ongoingTranslatedText.length > 0) {
+    // split into english words array by the seperator and deal with trailing space of last char
+    let words = ongoingTranslatedText.trimEnd().split(" / ");
+    // split into char array and deal with spaces
+    let chars = words[words.length - 1].split(" ");
+    // remove the last char
+    chars.pop();
+    // rebuild words and seperate by space
+    words[words.length - 1] = chars.join(" ");
+    // rebuild ongoing text seperated by the seperator
+    ongoingTranslatedText = words.join(" / ");
   }
-  return (decodedOutputElement.textContent = outputResult);
+
+  // Update the decoded output element
+  decodedOutputElement.textContent = ongoingTranslatedText;
 }
 
 document.querySelectorAll("textarea").forEach((input) => {
-  input.addEventListener("keyup", (event) => {
-    decodedOutputElement.textContent = "";
+  input.addEventListener("keydown", (event) => {
+    console.log(event.key);
     let translatedChar = "";
 
     if (typeof event.key !== "string")
@@ -42,6 +51,7 @@ document.querySelectorAll("textarea").forEach((input) => {
           translatedChar = translateToMorse(event.key);
           break;
         default:
+          //TO DO add user UX
           console.error("Invalid target id");
           return;
       }

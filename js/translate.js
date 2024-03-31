@@ -69,7 +69,7 @@ export function translateToEnglish(englishUserInput) {
   const englishChar = englishUserInput.toUpperCase();
 
   // add separator to represent a space
-  if (englishChar === " ") return "/";
+  if (englishChar === " ") return "/ ";
 
   let morseChar = dictionary[englishChar];
 
