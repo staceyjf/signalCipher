@@ -11,9 +11,9 @@ resetButton.addEventListener("click", () => {
   inputText.value = "";
 });
 
-toggleButton.addEventListener("click", (event) => {
+toggleButton.addEventListener("click", () => {
   // Toggle the translation mode with the custom html data attribute
-  const currentMode = event.target.dataset.inputType;
+  const currentMode = inputText.dataset.inputType;
   const newMode = currentMode === "toMorse" ? "toEnglish" : "toMorse";
   inputText.setAttribute("data-input-type", newMode);
 
@@ -35,7 +35,7 @@ inputText.addEventListener("input", (event) => {
   if (currentMode === "toMorse") {
     outputText = inputText.value
       .split("")
-      .map((char) => translateToMorse(char)) // separator and char spacing is handled in translateToMorse
+      .map((char) => translateToMorse(char) + " ") // separator is handled in translateToMorse
       .join("");
   } else if (currentMode === "toEnglish") {
     outputText = inputText.value

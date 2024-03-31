@@ -61,7 +61,6 @@ const dictionary = {
 const invalidInputError = "A string has not been provided";
 
 export function translateToMorse(englishUserInput) {
-  console.log(englishUserInput);
   if (typeof englishUserInput !== "string") throw new Error(invalidInputError);
   if (englishUserInput === "") return "";
 
@@ -69,15 +68,12 @@ export function translateToMorse(englishUserInput) {
   const englishChar = englishUserInput.toUpperCase();
 
   // add separator to represent a space
-  if (englishChar === " ") return "/ ";
+  if (englishChar === " ") return "/";
 
   let morseChar = dictionary[englishChar];
 
-  // deal with chars that don't have a translation
   if (morseChar === undefined) morseChar = "#";
-
-  // each morse char is seperated by a space
-  return morseChar + " ";
+  return morseChar;
 }
 
 export function translateToEnglish(morseUserInput) {
