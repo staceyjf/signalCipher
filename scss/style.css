@@ -310,7 +310,7 @@ template {
   display: none;
 }
 
-body, header, main, .translator__results {
+body, header, main, .translator__textContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -359,25 +359,26 @@ body, header, main, .translator__results {
   justify-content: flex-start;
   align-items: center;
   padding: 1em;
-  row-gap: 4em;
+  row-gap: 1em;
 }
 .translator__btnContainer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
   column-gap: 1em;
-  margin-top: 2em;
+  row-gap: 0.5em;
 }
 .translator__btnContainer button {
   width: 9em;
   height: 3em;
 }
-.translator__results {
+.translator__textContainer {
   width: 100%;
   row-gap: 1em;
 }
-.translator__results textarea {
-  width: 80%;
+.translator__textContainer textarea {
+  width: 100%;
   padding: 10px;
   border: 1px solid #d9d9d9;
   border-radius: 4px;
@@ -386,36 +387,49 @@ body, header, main, .translator__results {
   color: #353535;
   transition: border-color 0.3s ease;
 }
-.translator__results textarea:focus {
+.translator__textContainer textarea:focus {
   border-color: #284b63;
   outline: none;
 }
-.translator__results textarea::placeholder {
+.translator__textContainer textarea::placeholder {
   text-align: center;
   color: #999;
 }
-.translator__results .decodedtext {
-  width: 80%;
+.translator__textContainer .decodedtext {
+  width: 100%;
   min-height: 10em;
   padding: 1em;
   flex: 1;
-  background-color: white;
-  text-align: center;
+  background-color: #d9d9d9;
 }
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media only screen and (min-width: 767px) and (max-width: 991px) {
+  .translator {
+    padding: 3em;
+    row-gap: 1em;
+  }
   .translator__btnContainer {
-    column-gap: 2em;
+    margin-top: 3em;
+    column-gap: 3em;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .translator {
+    padding: 3em;
+    row-gap: 1em;
+  }
+  .translator__btnContainer {
+    margin-top: 3em;
+    column-gap: 8em;
   }
 }
 @media only screen and (min-width: 1200px) {
+  .translator {
+    padding: 5em;
+    row-gap: 1em;
+  }
   .translator__btnContainer {
-    column-gap: 3em;
-  }
-  .translator textarea {
-    width: 60%;
-  }
-  .translator .decodedtext {
-    width: 60%;
+    margin-top: 3em;
+    column-gap: 10em;
   }
 }
 
@@ -441,6 +455,7 @@ header h1 {
   font-family: "Space Mono", "Courier New", Courier, monospace;
   font-weight: 900;
   letter-spacing: 0.15em;
+  font-size: 1.5em;
 }
 
 main {

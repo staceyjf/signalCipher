@@ -1,7 +1,7 @@
 // partials
 @use "../_partials/brand-variables" as bv;
 @use "../_partials/helpers";
-@use "../_partials/queries" as q;
+@use "../_partials/queries";
 
 // components
 @use "../_components/btn.scss";
@@ -16,35 +16,32 @@
   justify-content: flex-start; // aligns main (eg vertical)
   align-items: center; // aligns cross (eg horiztonal;)
   padding: 1em;
-  row-gap: 4em;
+  row-gap: 1em;
 
   &__btnContainer {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly; // aligns main (eg horiztonal)
     align-items: center; // aligns cross (eg vertical;)
     column-gap: 1em;
-    margin-top: 2em;
+    row-gap: 0.5em;
 
     & button {
       @extend %btn;
       width: 9em;
       height: 3em;
     }
-
-    // & .material-symbols-outlined {
-    //   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-    // }
   }
 
-  &__results {
+  &__textContainer {
     width: 100%;
     @extend %flex-column-center-center;
     row-gap: 1em;
 
     & textarea {
-      width: 80%;
+      width: 100%;
       padding: 10px;
-      border: 1px solid bv.$light-color; // Add a border
+      border: 1px solid bv.$light-color;
       border-radius: 4px;
       font-size: 16px;
       line-height: 1.5;
@@ -64,32 +61,41 @@
     }
 
     & .decodedtext {
-      width: 80%;
+      width: 100%;
       min-height: 10em;
       padding: 1em;
       flex: 1;
-      background-color: white;
-      text-align: center;
+      background-color: bv.$light-color;
     }
   }
 
-  @include q.tablet {
-    &__btnContainer {
-      column-gap: 2em;
-    }
-  }
+  @include queries.tablet {
+    padding: 3em;
+    row-gap: 1em;
 
-  @include q.desktop {
     &__btnContainer {
+      margin-top: 3em;
       column-gap: 3em;
     }
+  }
 
-    & textarea {
-      width: 60%;
+  @include queries.laptop {
+    padding: 3em;
+    row-gap: 1em;
+
+    &__btnContainer {
+      margin-top: 3em;
+      column-gap: 8em;
     }
+  }
 
-    & .decodedtext {
-      width: 60%;
+  @include queries.desktop {
+    padding: 5em;
+    row-gap: 1em;
+
+    &__btnContainer {
+      margin-top: 3em;
+      column-gap: 10em;
     }
   }
 }
