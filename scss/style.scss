@@ -2,6 +2,7 @@
 @use "./_partials/normalisation";
 @use "./_partials/helpers";
 @use "./_partials/brand-variables" as bv;
+@use "./_partials/queries" as q;
 
 // elements
 @use "./_elements/translator.scss";
@@ -13,9 +14,9 @@
 }
 
 body {
+  @extend %flex-column-center-center;
   height: 100vh;
   width: 100vw;
-  @extend %flex-column-center-center;
 }
 
 header {
@@ -24,6 +25,7 @@ header {
   max-height: max-content;
   @extend %flex-column-center-center;
   padding-bottom: 1em;
+  color: bv.$light-color;
 
   h1 {
     @include bv.font--primary(900);

@@ -1,5 +1,5 @@
 // defining my morse code dictionary
-export const morseDictionary = {
+const dictionary = {
   A: ".-",
   B: "-...",
   C: "-.-.",
@@ -57,3 +57,28 @@ export const morseDictionary = {
   "¿": "..-.-",
   "¡": "--...-",
 };
+
+// ERRORS
+const invalidInputError = "A string has not been provided";
+
+export function translateToEnglish(userInput) {
+  if (userInput === "") return "";
+  if (typeof userInput !== "string") throw new Error(invalidInputError);
+
+  let englishChar = userInput.toUpperCase();
+  let morseChar;
+
+  // add seperator for spaces
+  if (englishChar === " ") return "/";
+
+  morseChar = dictionary[englishChar];
+
+  // deal with chars that don't have a translation
+  if (morseChar === undefined) morseChar = "#";
+
+  return morseChar;
+}
+
+// function translateToMorse() {
+//   return null;
+// };

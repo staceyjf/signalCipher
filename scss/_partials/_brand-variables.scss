@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-$primary-color: blue;
-$secondary-color: lightgrey;
-$dark-color: #333;
-$light-color: #e9ecea;
+$primary-color: #284b63;
+$secondary-color: #3c6e71;
+$dark-color: #353535;
+$light-color: #d9d9d9;
 
 // taking the fonts weight as params for easy customisation
 @mixin font--primary($weight) {
