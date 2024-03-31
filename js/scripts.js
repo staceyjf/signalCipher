@@ -3,7 +3,8 @@ import { translateToEnglish, translateToMorse } from "./translate.js";
 // NODES
 const toMorseBtn = document.getElementById("toMorseBtn");
 const toEnglishBtn = document.getElementById("toEnglishBtn");
-let translatedResults = document.querySelectorAll("#translator__results");
+const translationEl = document.getElementById("decodedOutput");
+let outputResult = "";
 
 document.querySelectorAll("textarea").forEach((input) => {
   input.addEventListener("keyup", (event) => {
@@ -15,7 +16,7 @@ document.querySelectorAll("textarea").forEach((input) => {
     //TODO: how do test with shift
     if (event.key === "Shift") return;
 
-    let outputChar;
+    let outputChar = "";
 
     try {
       if (event.target.id === "englishInput")
@@ -30,9 +31,10 @@ document.querySelectorAll("textarea").forEach((input) => {
       );
     }
 
-    console.log(outputChar);
-
-    return outputChar;
+    // create the relevant dom elements
+    outputResult += outputChar;
+    console.log(outputResult);
+    translationEl.textContent = outputResult;
   });
 });
 

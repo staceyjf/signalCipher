@@ -9,7 +9,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <script type="module" src="./js/scripts.js"></script>
+    <script type="module" src="./js/scripts.js" defer></script>
     <title>Signal Cipher - your morse code companion</title>
   </head>
   <body>
@@ -35,7 +35,7 @@
             placeholder="Translate English to Morse"
             required
           ></textarea>
-          <div class="decodedtext"></div>
+          <div id="decodedOutput" class="decodedtext"></div>
         </div>
 
         <div class="translator__results">
@@ -48,7 +48,6 @@
             placeholder="Translate Morse to English"
             required
           ></textarea>
-          <div class="decodedtext"></div>
         </div>
       </div>
     </main>
