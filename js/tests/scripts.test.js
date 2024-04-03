@@ -60,7 +60,7 @@ describe("test cases for a function that translate a morse code letter to a sing
     expect(translateToEnglish(" ")).toBe("");
   });
 
-  it("should correctly translate a " / " to a space", () => {
+  it("should correctly translate a ' / ' to a space", () => {
     expect(translateToEnglish("/")).toBe(" ");
   });
 
