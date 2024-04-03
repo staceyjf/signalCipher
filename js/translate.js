@@ -70,7 +70,7 @@ export const englishDictionary = Object.entries(morseDictionary).reduce(
 // ERRORS
 const invalidInputError = "A string has not been provided";
 
-export function translateToMorse(userInput, dictionary, spacer, separator) {
+export function translate(userInput, dictionary, spacer, separator) {
   if (typeof userInput !== "string") throw new Error(invalidInputError);
 
   return userInput
@@ -80,31 +80,6 @@ export function translateToMorse(userInput, dictionary, spacer, separator) {
       let morseChar = dictionary[char];
       if (morseChar === undefined) morseChar = "#";
       output += morseChar + separator;
-      console.log(output);
       return output;
     }, "");
-
-  // // morse is case in-insensitive
-  // const englishChar = englishUserInput.toUpperCase();
-
-  // add separator to represent a space
-  // if (englishChar === " ") return "/";
-}
-
-export function translateToEnglish(morseUserInput) {
-  if (typeof morseUserInput !== "string") throw new Error(invalidInputError);
-  if (morseUserInput === "" || morseUserInput === " ") return "";
-  // as # can presents any english char that doesn't have a morse equivalent, we should return #
-  if (morseUserInput === "#") return "#";
-  // it should translate the separator to be a space
-  if (morseUserInput === "/") return " ";
-
-  // use the value to find the key aka englishChar
-  let englishChar = Object.keys(morseDictionary).find(
-    (key) => morseDictionary[key] === morseUserInput
-  );
-
-  if (englishChar === undefined) englishChar = "#";
-
-  return englishChar;
 }
