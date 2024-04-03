@@ -1,5 +1,5 @@
 // defining my morse code morseDictionary
-const morseDictionary = {
+export const morseDictionary = {
   A: ".-",
   B: "-...",
   C: "-.-.",
@@ -59,7 +59,7 @@ const morseDictionary = {
   " ": "/",
 };
 
-const englishDictionary = Object.entries(morseDictionary).reduce(
+export const englishDictionary = Object.entries(morseDictionary).reduce(
   (dictionary, [a, b]) => {
     dictionary[b] = a;
     return dictionary;
@@ -70,17 +70,18 @@ const englishDictionary = Object.entries(morseDictionary).reduce(
 // ERRORS
 const invalidInputError = "A string has not been provided";
 
-export function translateToMorse(userInput) {
+export function translateToMorse(userInput, dictionary, spacer, separator) {
   if (typeof userInput !== "string") throw new Error(invalidInputError);
 
   return userInput
     .toUpperCase()
-    .split("")
+    .split(spacer)
     .reduce((output, char) => {
-      let morseChar = morseDictionary[char];
+      let morseChar = dictionary[char];
       if (morseChar === undefined) morseChar = "#";
-      output += char;
-      return morseChar;
+      output += morseChar + separator;
+      console.log(output);
+      return output;
     }, "");
 
   // // morse is case in-insensitive
