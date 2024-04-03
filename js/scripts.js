@@ -1,10 +1,19 @@
-import { translateToEnglish, translateToMorse } from "./translate.js";
+import {
+  morseDictionary,
+  englishDictionary,
+  translateToEnglish,
+  translateToMorse,
+} from "./translate.js";
 
 // NODES
 const decodedOutputElement = document.getElementById("decodedOutput");
 const inputText = document.getElementById("inputText");
 const resetButton = document.getElementById("resetBtn");
 const toggleButton = document.getElementById("toggleBtn");
+
+// VARIABLES
+let outputText = "";
+s;
 
 resetButton.addEventListener("click", () => {
   decodedOutputElement.textContent = "";
@@ -30,20 +39,31 @@ toggleButton.addEventListener("click", () => {
 inputText.addEventListener("input", (event) => {
   // get my custom data attribute.  browser converts kebab-case to camelCase.
   const currentMode = event.target.dataset.inputType;
-  let outputText = "";
+  // let outputText = "";
 
   try {
     if (currentMode === "toMorse") {
-      outputText = inputText.value
-        .split("")
-        .map((char) => translateToMorse(char) + " ") // separator is handled in translateToMorse
-        .join("");
+      // takes a dictionary, a spacer for chars and a separator for words
+      outputText = translateToMorse(inputText.value, morseDictionary, "", " ");
     } else if (currentMode === "toEnglish") {
-      outputText = inputText.value
-        .split(" ")
-        .map((morseChar) => translateToEnglish(morseChar)) // separator is handled in translateToMorse
-        .join("");
+      outputText = translateToEnglish(
+        inputText.value,
+        englishDictionary,
+        " ",
+        ""
+      );
     }
+    // if (currentMode === "toMorse") {
+    //   outputText = inputText.value
+    //     .split("")
+    //     .map((char) => translateToMorse(char) + " ") // separator is handled in translateToMorse
+    //     .join("");
+    // } else if (currentMode === "toEnglish") {
+    //   outputText = inputText.value
+    //     .split(" ")
+    //     .map((morseChar) => translateToEnglish(morseChar)) // separator is handled in translateToMorse
+    //     .join("");
+    // }
     decodedOutputElement.textContent = outputText;
   } catch (error) {
     console.error("ERROR: " + error.message);
