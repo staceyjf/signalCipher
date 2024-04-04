@@ -1,4 +1,5 @@
-import { morseDictionary, englishDictionary, translate } from "./translate.js";
+import { translate } from "./translate.js";
+import { morseDictionary, englishDictionary } from "./dictionary.js";
 
 // NODES
 const decodedOutputElement = document.getElementById("decodedOutput");
@@ -6,8 +7,11 @@ const inputText = document.getElementById("inputText");
 const resetButton = document.getElementById("resetBtn");
 const toggleButton = document.getElementById("toggleBtn");
 
-// VARIABLES
-let outputText = "";
+// ENUM
+const translator = {
+  english: "toEnglish",
+  morse: "toMorse",
+};
 
 resetButton.addEventListener("click", () => {
   decodedOutputElement.textContent = "";
@@ -33,7 +37,7 @@ toggleButton.addEventListener("click", () => {
 inputText.addEventListener("input", (event) => {
   // get my custom data attribute.  browser converts kebab-case to camelCase.
   const currentMode = event.target.dataset.inputType;
-  // let outputText = "";
+  let outputText = "";
 
   try {
     if (currentMode === "toMorse") {
