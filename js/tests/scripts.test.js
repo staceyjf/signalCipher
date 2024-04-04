@@ -1,8 +1,9 @@
-// more code rules
+// morse code rules
 // separator: words are separated by "/"
 // space: each character is separated by a single space
 
-import { translateToEnglish, translateToMorse } from "../translate.js";
+import { translate } from "../translate.js";
+import { morseDictionary, englishDictionary } from "../dictionary.js";
 
 // ERRORS
 const invalidInputError = new Error("A string has not been provided"); // be careful how you set this up
@@ -11,34 +12,44 @@ const invalidInputError = new Error("A string has not been provided"); // be car
 // convert a single character to morse
 describe("test cases for a function that translates a single char to morse code", () => {
   it("should return a translated a single char to a morse code string", () => {
-    expect(translateToMorse("h")).toBe("....");
-    expect(translateToMorse("w")).toBe(".--");
-    expect(translateToMorse("1")).toBe(".----");
-    expect(translateToMorse("!")).toBe("-.-.--");
+    expect(translate("h", morseDictionary, "", " ")).toBe("....");
+    expect(translate("w", morseDictionary, "", " ")).toBe(".--");
+    expect(translate("1", morseDictionary, "", " ")).toBe(".----");
+    expect(translate("!", morseDictionary, "", " ")).toBe("-.-.--");
   });
 
   it("should return the same result for upper and lower case letters", () => {
-    expect(translateToMorse("z")).toEqual(translateToMorse("Z"));
+    expect(translate("z", morseDictionary, "", " ")).toEqual(
+      translate("Z", morseDictionary, "", " ")
+    );
   });
 
   it("should replace characters that can't be translated with a #", () => {
-    expect(translateToMorse("<")).toBe("#");
-    expect(translateToMorse("#")).toBe("#");
+    expect(translate("<", morseDictionary, "", " ")).toBe("#");
+    expect(translate("#", morseDictionary, "", " ")).toBe("#");
   });
 
   it("should return an empty string when the input is an empty string", () => {
-    expect(translateToMorse("")).toBe("");
+    expect(translate("", morseDictionary, "", " ")).toBe("");
   });
 
   it("should correctly translate spaces", () => {
-    expect(translateToMorse(" ")).toBe("/");
+    expect(translate(" ", morseDictionary, "", " ")).toBe("/");
   });
 
   it("should throw an error when the input is not a string", () => {
-    expect(() => translateToMorse(3)).toThrow(invalidInputError);
-    expect(() => translateToMorse(true)).toThrow(invalidInputError);
-    expect(() => translateToMorse({})).toThrow(invalidInputError);
-    expect(() => translateToMorse([])).toThrow(invalidInputError);
+    expect(() => translate(3, morseDictionary, "", " ")).toThrow(
+      invalidInputError
+    );
+    expect(() => translate(true, morseDictionary, "", " ")).toThrow(
+      invalidInputError
+    );
+    expect(() => translate({}, morseDictionary, "", " ")).toThrow(
+      invalidInputError
+    );
+    expect(() => translate([], morseDictionary, "", " ")).toThrow(
+      invalidInputError
+    );
   });
 });
 
@@ -46,28 +57,36 @@ describe("test cases for a function that translates a single char to morse code"
 // convert a single code pattern to a english char
 describe("test cases for a function that translate a morse code letter to a single english character", () => {
   it("should return a translated a single morse code block to a char", () => {
-    expect(translateToEnglish("....")).toBe("H");
-    expect(translateToEnglish(".--")).toBe("W");
-    expect(translateToEnglish("--...")).toBe("7");
-    expect(translateToEnglish("..--..")).toBe("?");
+    expect(translate("....", englishDictionary, " ", "")).toBe("H");
+    expect(translate(".--", englishDictionary, " ", "")).toBe("W");
+    expect(translate("--...", englishDictionary, " ", "")).toBe("7");
+    expect(translate("..--..", englishDictionary, " ", "")).toBe("?");
   });
 
   it("should return an empty string when the input is an empty string", () => {
-    expect(translateToEnglish("")).toBe("");
+    expect(translate("", englishDictionary, " ", "")).toBe("");
   });
 
   it("should correctly translate a ' ' to be a new english char", () => {
-    expect(translateToEnglish(" ")).toBe("");
+    expect(translate("..--.. ..--..", englishDictionary, " ", "")).toBe("??");
   });
 
   it("should correctly translate a ' / ' to a space", () => {
-    expect(translateToEnglish("/")).toBe(" ");
+    expect(translate("/", englishDictionary, " ", "")).toBe(" ");
   });
 
   it("should throw an error when the input is not a string", () => {
-    expect(() => translateToEnglish(3)).toThrow(invalidInputError);
-    expect(() => translateToEnglish(true)).toThrow(invalidInputError);
-    expect(() => translateToEnglish({})).toThrow(invalidInputError);
-    expect(() => translateToEnglish([])).toThrow(invalidInputError);
+    expect(() => translate(3, englishDictionary, " ", "")).toThrow(
+      invalidInputError
+    );
+    expect(() => translate(true, englishDictionary, " ", "")).toThrow(
+      invalidInputError
+    );
+    expect(() => translate({}, englishDictionary, " ", "")).toThrow(
+      invalidInputError
+    );
+    expect(() => translate([], englishDictionary, " ", "")).toThrow(
+      invalidInputError
+    );
   });
 });
